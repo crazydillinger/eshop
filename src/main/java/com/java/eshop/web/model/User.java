@@ -1,7 +1,6 @@
 package com.java.eshop.web.model;
 
 public class User {
-	
 	private String username;
 	private String password;
 	public String getUsername() {
