@@ -1,4 +1,4 @@
-package com.java.eshop;
+package com.java.eshop.web.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
