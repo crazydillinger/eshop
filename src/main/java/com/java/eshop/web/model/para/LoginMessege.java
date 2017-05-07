@@ -1,6 +1,6 @@
-package com.java.eshop.web.model;
+package com.java.eshop.web.model.para;
 
-public class User {
+public class LoginMessege {
 	private String username;
 	private String password;
 	public String getUsername() {
