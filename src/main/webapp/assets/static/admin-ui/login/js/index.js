@@ -17,6 +17,7 @@ function login(username,password,callback){
 		url:"/eshop/login", 
 		data:JSON.stringify({username:username,password:password}),
 		success: function(data){
+			alert(JSON.stringify(data));
 			layer.msg("登陆成功！");
 		}
 	});
