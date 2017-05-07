@@ -3,11 +3,10 @@ package com.java.eshop.web.dao;
 import java.io.IOException;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.log4j.spi.LoggerFactory;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.slf4j.Logger;
 
 import com.java.eshop.commons.DBAcess;
+import com.java.eshop.web.model.po.EshopUser;
 
 public class TestDao {
 	
@@ -20,7 +19,9 @@ public class TestDao {
 		
 		try {
 			sqlSession = dbAcess.getSqlSession();
+			EshopUser user = sqlSession.selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", 1);
 			logger.info("SQLSESSION:" + sqlSession);
+			logger.info("USER:" + user.toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
