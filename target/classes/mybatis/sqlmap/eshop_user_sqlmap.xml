@@ -21,7 +21,69 @@
   	<result column="add_time" property="addTime" jdbcType="TIMESTAMP"/>
   	<result column="upd_time" property="updTime" jdbcType="TIMESTAMP"/>
   </resultMap>
-  <select id="selectUserByPrimaryKey" resultMap="UserResult">
-    select * from eshop_user where id = #{id}
+  <sql id="Base_Column_List">
+  	id, username, realname, password, user_tel, user_mail, photo, integral, question, answer, gender, province,
+  	city, valid, add_time, upd_time
+  </sql>
+  <select id="selectUserByPrimaryKey" resultMap="UserResult" parameterType="Integer">
+    select <include refid="eshop_user_sqlmap.Base_Column_List"></include> from eshop_user where id = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="Integer">
+    delete from eshop_user where id = #{id}
+  </delete>
+  <insert id="insert" parameterType="com.java.eshop.web.model.po.EshopUser">
+  	insert into eshop_user (id, username, realname, password, user_tel, user_mail, photo, integral, question, answer, gender, province,
+  	city, valid, add_time, upd_time) values (#{id},#{username},#{realName},#{password},#{userTel},#{userMail},#{photo},#{integral},#{question},#{answer},#{gender},#{province},#{city},#{valid},#{addTime},#{updTime})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.java.eshop.web.model.po.EshopUser">
+  	update eshop_user 
+  	set
+  	username = #{username},
+  	realname = #{realName},
+  	password = #{password},
+  	user_tel = #{userTel},
+  	user_mail = #{userMail},
+  	photo = #{photo},
+  	integral = #{integral},
+  	question = #{question},
+  	answer = #{answer},
+  	gender = #{gender},
+  	province = #{province},
+  	city = #{city},
+  	valid = #{valid},
+  	add_time = #{addTime},
+  	upd_time = #{updTime}
+  	where id = #{id}
+  </update>	
+  <select id="selectByParams" parameterType="java.util.Map" resultMap="UserResult">
+	select
+  	<include refid="eshop_user_sqlmap.Base_Column_List"/>
+  	from eshop_user
+  	where 1 = 1
+  	<if test="username != null">
+  		AND username like #{username}
+  	</if>
+  	<if test="realName != null">
+  		AND realname like #{realName}
+  	</if>
+  	<if test="valid != null">
+  		AND valid = #{valid}
+  	</if>
+  	order by add_time desc,upd_time desc  	
+  </select>
+   <select id="selectCount" parameterType="java.util.Map" resultType="Integer">
+	select
+  	count(*)
+  	from eshop_user
+  	<if test="username != null">
+  		AND username like #{username}
+  	</if>
+  	<if test="realName != null">
+  		AND realname like #{realName}
+  	</if>
+  	<if test="valid != null">
+  		AND valid = #{valid}
+  	</if>
+  	order by add_time desc,upd_time desc  	
   </select>
 </mapper>

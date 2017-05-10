@@ -21,6 +21,13 @@ public class ServiceResponse implements Serializable{
 		return (T)data.put(key, value);
 	}
 
+	public <T> T error(String key, T value){
+		if(null == data){
+			data = new HashMap<String, Object>();
+		}
+		data.put("code", -1);
+		return (T)data.put(key, value);
+	}
 	public String getCode() {
 		return code;
 	}

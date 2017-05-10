@@ -3,6 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+  <!-- 选择一个日志 -->
+  <settings>
+  	<setting name="logImpl" value="STDOUT_LOGGING"/>
+  </settings>
   <environments default="development">
     <environment id="development">
       <transactionManager type="JDBC"/>
@@ -13,7 +17,7 @@
         <property name="password" value="123456"/>
       </dataSource>
     </environment>
-  </environments>
+  </environments> 
   <mappers>
     <mapper resource="mybatis/sqlmap/eshop_user_sqlmap.xml"/>
   </mappers>

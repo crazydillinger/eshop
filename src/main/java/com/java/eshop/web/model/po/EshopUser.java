@@ -1,6 +1,6 @@
 package com.java.eshop.web.model.po;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class EshopUser {
 	

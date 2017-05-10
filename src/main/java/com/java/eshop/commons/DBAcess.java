@@ -16,14 +16,14 @@ public class DBAcess {
 	
 	private static final Logger logger = LoggerFactory.getLogger(DBAcess.class);
 	
-	public SqlSession getSqlSession() throws IOException{
+	public static SqlSession getSqlSession() throws IOException{
 		InputStream input = Resources.getResourceAsStream("mybatis/SqlMapConfig.xml");
 		
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		logger.info("连接数据库");
+		logger.info("连接数据库成功");
 		
 		return sqlSession;
 	}
