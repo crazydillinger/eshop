@@ -20,8 +20,11 @@ function login(username, password, callback) {
 			password : password
 		}),
 		success : function(json) {
-			layer.msg(json.data.msg);
-			
+			if(json.data.code == -1){
+				layer.msg(json.data.msg);
+			}else{
+				window.location.href = "http://localhost:8080/eshop/home";
+			}
 		}
 	});
 }
