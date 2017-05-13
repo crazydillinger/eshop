@@ -12,24 +12,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Handles requests for the application home page.
+ * @author chengkui
+ *
  */
 @Controller
 public class PageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("½øÈëµÇÂ½Ò³Ãæ", locale);
-		return "login";
+	@RequestMapping(value = "/ms/login", method = RequestMethod.GET)
+	public String loginPage(Locale locale, Model model) {
+		logger.info("è¿›å…¥ç™»é™†é¡µ", locale);
+		return "admin-ui/login";
 	}
 	
-	@RequestMapping(value = "/home",method = RequestMethod.GET)
+	@RequestMapping(value = "/ms/index",method = RequestMethod.GET)
+	public String msIndex(Locale locale, Model model) {
+		return "admin-ui/index";
+	}
+	
+	@RequestMapping(value = "/login",method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		return "eshop-ui/login";
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
-		return "index";
+		return "eshop-ui/index";
 	}
 }

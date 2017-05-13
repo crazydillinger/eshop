@@ -20,5 +20,6 @@
   </environments> 
   <mappers>
     <mapper resource="mybatis/sqlmap/eshop_user_sqlmap.xml"/>
+    <mapper resource="mybatis/sqlmap/eshop_address_sqlmap.xml"/>
   </mappers>
 </configuration>

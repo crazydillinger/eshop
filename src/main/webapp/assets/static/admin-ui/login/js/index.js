@@ -14,7 +14,7 @@ function login(username, password, callback) {
 		type : "post",
 		dataType : "json",
 		contentType : "application/json;charset=utf-8",
-		url : "/eshop/login",
+		url : "/eshop/user/login",
 		data : JSON.stringify({
 			username : username,
 			password : password
@@ -23,7 +23,7 @@ function login(username, password, callback) {
 			if(json.data.code == -1){
 				layer.msg(json.data.msg);
 			}else{
-				window.location.href = "http://localhost:8080/eshop/home";
+				window.location.href = "http://localhost:8080/eshop/ms/index";
 			}
 		}
 	});

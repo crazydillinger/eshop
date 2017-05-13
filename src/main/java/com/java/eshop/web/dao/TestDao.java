@@ -22,7 +22,7 @@ public class TestDao {
 		
 		try {
 			sqlSession = dbAcess.getSqlSession();
-//			EshopUser user = sqlSession.selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", 1);
+			EshopUser user = sqlSession.selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", 1);
 			
 //			sqlSession.delete("eshop_user_sqlmap.deleteByPrimaryKey", 2);
 //			sqlSession.commit();
@@ -40,10 +40,10 @@ public class TestDao {
 //			user.setUsername("update");
 //			sqlSession.update("eshop_user_sqlmap.updateByPrimaryKey", user);
 //			sqlSession.commit();
-			Map<String, Object> params = new HashMap<String, Object>();
-			params.put("username","%hh%");
-			params.put("realName", "ck");
-			java.util.List<EshopUser> list = sqlSession.selectList("eshop_user_sqlmap.selectByParams", params);
+//			Map<String, Object> params = new HashMap<String, Object>();
+//			params.put("username","%hh%");
+//			params.put("realName", "ck");
+//			java.util.List<EshopUser> list = sqlSession.selectList("eshop_user_sqlmap.selectByParams", params);
 //			Map<String, Object> params = new HashMap<String, Object>();
 //			Integer integer  = sqlSession.selectOne("eshop_user_sqlmap.selectCount", params);
 		} catch (IOException e) {

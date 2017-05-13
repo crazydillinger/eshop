@@ -16,8 +16,15 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	 */
 	@Override
 	public EshopUser selectUserByPrimaryKey(Long id) throws IOException {
-		EshopUser user = DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", id);
+		EshopUser user = DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectByPrimaryKey", id);
 		return user;
+	}
+	
+	/**
+	 * 根据用户名查询用户
+	 */
+	public EshopUser selectByUsername(String username) throws IOException{
+		return DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectByUsername", username);
 	}
 
 	/**

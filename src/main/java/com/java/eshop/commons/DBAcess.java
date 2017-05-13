@@ -23,7 +23,7 @@ public class DBAcess {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		logger.info("Á¬½ÓÊı¾İ¿â³É¹¦");
+		logger.info("è¿æ¥æ•°æ®åº“æˆåŠŸ");
 		
 		return sqlSession;
 	}

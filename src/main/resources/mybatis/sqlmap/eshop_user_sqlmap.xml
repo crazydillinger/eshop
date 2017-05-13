@@ -28,6 +28,9 @@
   <select id="selectUserByPrimaryKey" resultMap="UserResult" parameterType="Integer">
     select <include refid="eshop_user_sqlmap.Base_Column_List"></include> from eshop_user where id = #{id}
   </select>
+  <select id="selectByUsername" parameterType="String" resultMap="UserResult">
+  	select <include refid="eshop_user_sqlmap.Base_Column_List"/> from eshop_user where username =#{username}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="Integer">
     delete from eshop_user where id = #{id}
   </delete>

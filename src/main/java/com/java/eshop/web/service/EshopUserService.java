@@ -21,33 +21,31 @@ public class EshopUserService {
 	EshopUserDAOImpl userDAOImpl = new EshopUserDAOImpl();
 	
 	public void login(LoginMessege user,ServiceResponse sr){
-		//²é¿´È¨ÏŞ
-		//ÉèÖÃsession
+		//æƒé™è®¾ç½®
+		//session
 		if(null == user.getUsername()){
-			sr.error("msg", "ÇëÊäÈëÓÃ»§Ãû");
+			sr.error("msg", "ç”¨æˆ·åä¸èƒ½ä¸ºç©º");
 			return;
 		}
 		if(null == user.getPassword()){
-			sr.error("msg","ÇëÊäÈëÃÜÂë");
+			sr.error("msg","å¯†ç ä¸èƒ½ä¸ºç©º");
 			return;
 		}
-		Map<String , Object> params = new HashMap<String,Object>();
-		params.put("username", user.getUsername());
-		List<EshopUser> users = null;
+		EshopUser u = null;
 		try {
-			users =  userDAOImpl.selectByParams(params);
+			u =  userDAOImpl.selectByUsername(user.getUsername());
 		} catch (IOException e) {
 			logger.info(e.getMessage());
 		} finally {
-			if(null == users || users.size() == 0){
-				sr.error("msg", "ÓÃ»§Ãû»òÃÜÂë´íÎó!");
+			if(null == u){
+				sr.error("msg", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯!");
 				return;
 			}
 		}
-		if(!user.getPassword().equals(users.get(0).getPassword())){
-			sr.error("msg", "ÓÃ»§Ãû»òÃÜÂë´íÎó!");
+		if(!user.getPassword().equals(u.getPassword())){
+			sr.error("msg", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯!");
 			return;
 		}
-		sr.put("msg", "µÇÂ½³É¹¦");
+		sr.put("msg", "ç™»é™†æˆåŠŸï¼");
 	}
 }
