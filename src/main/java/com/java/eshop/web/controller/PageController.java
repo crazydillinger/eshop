@@ -33,11 +33,16 @@ public class PageController {
 	
 	@RequestMapping(value = "/login",method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
-		return "eshop-ui/login";
+		return "eshop-ui/home/login";
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
-		return "eshop-ui/index";
+		return "eshop-ui/home/index";
+	}
+	
+	@RequestMapping(value="/register",method= RequestMethod.GET)
+	public String register(){
+		return "eshop-ui/home/register";
 	}
 }

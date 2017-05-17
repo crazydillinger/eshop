@@ -12,23 +12,23 @@ import com.java.eshop.web.model.po.EshopUser;
 
 public class EshopUserDAOImpl implements EshopUserDAO{
 	/**
-	 * ¸ù¾Ýid²éÑ¯ÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½Ã»ï¿½
 	 */
 	@Override
 	public EshopUser selectUserByPrimaryKey(Long id) throws IOException {
-		EshopUser user = DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectByPrimaryKey", id);
+		EshopUser user = DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", id);
 		return user;
 	}
 	
 	/**
-	 * ¸ù¾ÝÓÃ»§Ãû²éÑ¯ÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½
 	 */
 	public EshopUser selectByUsername(String username) throws IOException{
 		return DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectByUsername", username);
 	}
 
 	/**
-	 * ¸ù¾ÝidÉ¾³ýÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½idÉ¾ï¿½ï¿½ï¿½Ã»ï¿½
 	 */
 	@Override
 	public void deleteByPrimaryKey(Long id) throws IOException {
@@ -36,7 +36,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * ²åÈëÓÃ»§Êý¾Ý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Override
 	public void insert(EshopUser record) throws IOException {
@@ -44,7 +44,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * ¸üÐÂÓÃ»§Êý¾Ý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Override
 	public void updateByPrimaryKey(EshopUser record) throws IOException {
@@ -52,7 +52,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * ¸ù¾ÝÌõ¼þ²éÑ¯ÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½
 	 */
 	@Override
 	public List<EshopUser> selectByParams(Map<String, Object> params) throws IOException {
@@ -61,7 +61,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * ¸ù¾ÝÌõ¼þ²éÑ¯ÓÃ»§¸öÊý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Override
 	public Integer selectCount(Map<String, Object> params) throws IOException {
