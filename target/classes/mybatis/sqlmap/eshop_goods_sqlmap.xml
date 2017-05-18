@@ -80,6 +80,14 @@
 		where id = #{id}
 	</update>
 	<select id="selectByParams" parameterType="java.util.Map" resultMap="GoodsResult">
-		
+		select <include refid="eshop_goods_sqlmap.Base_Column_List"/>
+		from eshop_goods
+		where 1 = 1 
+		<if test="goodsName != null">
+			AND goods_name = #{goodsName}
+		</if>
+		<if test="start != null and end != null">
+  			 limit ${start},${end} 
+  		</if>
 	</select>
 </mapper>

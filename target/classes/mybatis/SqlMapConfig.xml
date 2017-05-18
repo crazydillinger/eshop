@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <!-- 选择一个日志 -->
+  <!-- 选择一个日志给mybatis -->
   <settings>
   	<setting name="logImpl" value="STDOUT_LOGGING"/>
   </settings>
@@ -23,5 +23,6 @@
     <mapper resource="mybatis/sqlmap/eshop_address_sqlmap.xml"/>
     <mapper resource="mybatis/sqlmap/eshop_goods_sqlmap.xml"/>
     <mapper resource="mybatis/sqlmap/eshop_comment_sqlmap.xml"/>
+    <mapper resource="mybatis/sqlmap/eshop_category_sqlmap.xml"/>
   </mappers>
 </configuration>

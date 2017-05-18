@@ -12,6 +12,10 @@ public class EshopComment {
 	private Date addTime;
 	private Date updTime;
 	
+	public EshopComment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public EshopComment(Long id, String title, String comment, Integer grade, Long userId, Long productId, Date addTime,
 			Date updTime) {
 		super();

@@ -72,6 +72,9 @@
   	<if test="valid != null">
   		AND valid = #{valid}
   	</if>
+  	<if test="start != null and end != null">
+  		 limit ${start},${end} 
+  	</if>
   	order by add_time desc,upd_time desc  	
   </select>
    <select id="selectCount" parameterType="java.util.Map" resultType="Integer">

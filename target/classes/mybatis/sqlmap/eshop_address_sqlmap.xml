@@ -60,5 +60,8 @@
  		<if test="username != null">
  			AND username = #{username}
  		</if>
+ 		<if test="start != null and end != null">
+  			 limit ${start},${end} 
+  		</if>
  	</select>
   </mapper>
