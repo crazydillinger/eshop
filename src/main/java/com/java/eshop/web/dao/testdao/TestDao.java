@@ -1,4 +1,4 @@
-package com.java.eshop.web.dao;
+package com.java.eshop.web.dao.testdao;
 
 import java.io.IOException;
 import java.util.Date;
@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 
 import com.java.eshop.commons.DBAcess;
+import com.java.eshop.web.model.po.EshopComment;
 import com.java.eshop.web.model.po.EshopUser;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
@@ -22,8 +23,7 @@ public class TestDao {
 		
 		try {
 			sqlSession = dbAcess.getSqlSession();
-			EshopUser user = sqlSession.selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", 1);
-			
+//			EshopUser user = sqlSession.selectOne("eshop_user_sqlmap.selectUserByPrimaryKey", 1);
 //			sqlSession.delete("eshop_user_sqlmap.deleteByPrimaryKey", 2);
 //			sqlSession.commit();
 			
@@ -46,6 +46,7 @@ public class TestDao {
 //			java.util.List<EshopUser> list = sqlSession.selectList("eshop_user_sqlmap.selectByParams", params);
 //			Map<String, Object> params = new HashMap<String, Object>();
 //			Integer integer  = sqlSession.selectOne("eshop_user_sqlmap.selectCount", params);
+			EshopComment comment = new EshopComment(new Long(0),"title","comment",5,new Long(1),new Long(1),new Date(),new Date());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

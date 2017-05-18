@@ -21,5 +21,7 @@
   <mappers>
     <mapper resource="mybatis/sqlmap/eshop_user_sqlmap.xml"/>
     <mapper resource="mybatis/sqlmap/eshop_address_sqlmap.xml"/>
+    <mapper resource="mybatis/sqlmap/eshop_goods_sqlmap.xml"/>
+    <mapper resource="mybatis/sqlmap/eshop_comment_sqlmap.xml"/>
   </mappers>
 </configuration>
