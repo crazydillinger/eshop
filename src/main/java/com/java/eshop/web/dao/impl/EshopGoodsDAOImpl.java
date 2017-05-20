@@ -40,29 +40,31 @@ public class EshopGoodsDAOImpl implements EshopGoodsDAO{
 
 	/**
 	 * 由id删除商品
+	 * @throws IOException 
 	 */
 	@Override
-	public void deleteByPrimaryKey(Long id) {
-		
-		
+	public void deleteByPrimaryKey(Long id) throws IOException {
+		DBAcess.getSqlSession().delete("eshop_goods_sqlmap.deleteByPrimaryKey", id);
+		DBAcess.commit();
 	}
 
 	/**
 	 * 更新商品
+	 * @throws IOException 
 	 */
 	@Override
-	public void updateByPrimaryKey(EshopGoods record) {
-		// TODO Auto-generated method stub
-		
+	public void updateByPrimaryKey(EshopGoods record) throws IOException {
+		DBAcess.getSqlSession().update("eshop_goods_sqlmap.updateByPrimaryKey", record);
+		DBAcess.commit();
 	}
 
 	/**
 	 *由参数集合查询商品
+	 * @throws IOException 
 	 */
 	@Override
-	public List<EshopGoods> selectByParams(Map<String, Object> params) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<EshopGoods> selectByParams(Map<String, Object> params) throws IOException {
+		return DBAcess.getSqlSession().selectList("eshop_goods_sqlmap.selectByParmas", params);
 	}
 
 }
