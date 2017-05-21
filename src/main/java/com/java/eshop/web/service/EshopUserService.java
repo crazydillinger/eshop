@@ -1,17 +1,13 @@
 package com.java.eshop.web.service;
 
 import java.io.IOException;
-import java.nio.file.attribute.UserPrincipalLookupService;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import org.apache.log4j.spi.LoggerFactory;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
-
 import com.java.eshop.commons.ServiceResponse;
 import com.java.eshop.web.dao.impl.EshopUserDAOImpl;
 import com.java.eshop.web.model.para.LoginMessege;
+import com.java.eshop.web.model.para.RegisterMsg;
 import com.java.eshop.web.model.po.EshopUser;
 
 public class EshopUserService {
@@ -48,4 +44,52 @@ public class EshopUserService {
 		}
 		sr.put("msg", "登陆成功！");
 	}
+	
+	public void register(ServiceResponse sr,RegisterMsg registerMsg){
+		boolean isCheck = checkRegMsg(sr, registerMsg);
+		if(!isCheck){
+			return;
+		}
+		try {
+			EshopUser user = userDAOImpl.selectByUsername(registerMsg.getUsername());
+			if(null != user){
+				sr.error("msg", "该用户已存在");
+				return;
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		EshopUser u = new EshopUser();
+		u.setUsername(registerMsg.getUsername());
+		u.setPassword(registerMsg.getPassword());
+		try {
+			userDAOImpl.insert(u);
+			sr.put("msg", "注册成功");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private boolean checkRegMsg(ServiceResponse sr,RegisterMsg registerMsg) {
+		if(StringUtils.isBlank(registerMsg.getUsername())){
+			sr.error("msg", "用户名不能为空");
+			return false;
+		}
+		if(StringUtils.isBlank(registerMsg.getPassword())){
+			sr.error("msg", "密码不能为空");
+			return false;
+		}
+		if(StringUtils.isBlank(registerMsg.getPwdRepeat())){
+			sr.error("msg", "请确认密码");
+			return false;
+		}
+		if(!registerMsg.getPassword().equals(registerMsg.getPwdRepeat())){
+			sr.error("msg", "两次密码不一样");
+			return false;
+		}
+		return true;
+	}
+	
 }

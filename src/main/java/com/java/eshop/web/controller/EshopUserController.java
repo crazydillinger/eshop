@@ -5,6 +5,7 @@ package com.java.eshop.web.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.java.eshop.commons.ServiceResponse;
 import com.java.eshop.web.model.para.LoginMessege;
+import com.java.eshop.web.model.para.RegisterMsg;
 import com.java.eshop.web.model.po.EshopUser;
 import com.java.eshop.web.service.EshopUserService;
+import com.sun.org.apache.bcel.internal.generic.ReturnInstruction;
 @RequestMapping(value = "/user")
 @Controller
 public class EshopUserController {
@@ -43,8 +46,10 @@ public class EshopUserController {
 	 */
 	@RequestMapping(value = "/register",method = RequestMethod.POST)
 	@ResponseBody
-	public ServiceResponse register(@RequestParam EshopUser user){
-		return null;
-	}
+	public ServiceResponse register(@RequestBody RegisterMsg registerMsg){
+		ServiceResponse sr = new ServiceResponse();
+		userService.register(sr, registerMsg);
+		return sr;
+	}	
 }
 

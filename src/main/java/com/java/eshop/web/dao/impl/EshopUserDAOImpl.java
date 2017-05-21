@@ -12,7 +12,7 @@ import com.java.eshop.web.model.po.EshopUser;
 
 public class EshopUserDAOImpl implements EshopUserDAO{
 	/**
-	 * ����id��ѯ�û�
+	 * 由id查询用户
 	 */
 	@Override
 	public EshopUser selectUserByPrimaryKey(Long id) throws IOException {
@@ -21,14 +21,14 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 	
 	/**
-	 * �����û�����ѯ�û�
+	 * 由用户名查询用户
 	 */
 	public EshopUser selectByUsername(String username) throws IOException{
 		return DBAcess.getSqlSession().selectOne("eshop_user_sqlmap.selectByUsername", username);
 	}
 
 	/**
-	 * ����idɾ���û�
+	 * 由id删除用户
 	 */
 	@Override
 	public void deleteByPrimaryKey(Long id) throws IOException {
@@ -36,15 +36,16 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * �����û�����
+	 * 添加用户
 	 */
 	@Override
 	public void insert(EshopUser record) throws IOException {
 		DBAcess.getSqlSession().insert("eshop_user_sqlmap.insert", record);
+		DBAcess.commit();
 	}
 
 	/**
-	 * �����û�����
+	 * 由id更新用户
 	 */
 	@Override
 	public void updateByPrimaryKey(EshopUser record) throws IOException {
@@ -52,7 +53,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * ����������ѯ�û�
+	 * 由参数查询用户
 	 */
 	@Override
 	public List<EshopUser> selectByParams(Map<String, Object> params) throws IOException {
@@ -61,7 +62,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	}
 
 	/**
-	 * ����������ѯ�û�����
+	 * 查询用户数
 	 */
 	@Override
 	public Integer selectCount(Map<String, Object> params) throws IOException {
