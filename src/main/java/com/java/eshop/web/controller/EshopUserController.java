@@ -2,6 +2,9 @@ package com.java.eshop.web.controller;
 
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -32,10 +35,10 @@ public class EshopUserController {
 	 */
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	@ResponseBody
-	public  ServiceResponse login(@RequestBody LoginMessege msg){
+	public  ServiceResponse login(@RequestBody LoginMessege msg,HttpServletRequest request){
 		logger.info(msg.toString());
 		ServiceResponse sr = new ServiceResponse();
-		userService.login(msg, sr);
+		userService.login(msg, sr,request);
 		return sr;
 	}
 	

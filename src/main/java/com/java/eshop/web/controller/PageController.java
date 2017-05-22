@@ -38,7 +38,7 @@ public class PageController {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
-		return "eshop-ui/home/index";
+		return "eshop-ui/home/index/index";
 	}
 	
 	@RequestMapping(value="/register",method= RequestMethod.GET)

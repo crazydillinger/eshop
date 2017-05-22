@@ -1,9 +1,14 @@
 package com.java.eshop.web.service;
 
 import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
+import org.springframework.http.HttpRequest;
+
 import com.java.eshop.commons.ServiceResponse;
 import com.java.eshop.web.dao.impl.EshopUserDAOImpl;
 import com.java.eshop.web.model.para.LoginMessege;
@@ -16,14 +21,14 @@ public class EshopUserService {
 	
 	EshopUserDAOImpl userDAOImpl = new EshopUserDAOImpl();
 	
-	public void login(LoginMessege user,ServiceResponse sr){
+	public void login(LoginMessege user,ServiceResponse sr,HttpServletRequest request){
 		//权限设置
 		//session
-		if(null == user.getUsername()){
+		if(StringUtils.isBlank(user.getUsername())){
 			sr.error("msg", "用户名不能为空");
 			return;
 		}
-		if(null == user.getPassword()){
+		if(StringUtils.isBlank(user.getPassword())){
 			sr.error("msg","密码不能为空");
 			return;
 		}
@@ -43,8 +48,14 @@ public class EshopUserService {
 			return;
 		}
 		sr.put("msg", "登陆成功！");
+		request.getSession().setAttribute("USER", u);
 	}
 	
+	/**
+	 * 用户注册
+	 * @param sr
+	 * @param registerMsg
+	 */
 	public void register(ServiceResponse sr,RegisterMsg registerMsg){
 		boolean isCheck = checkRegMsg(sr, registerMsg);
 		if(!isCheck){
@@ -63,6 +74,8 @@ public class EshopUserService {
 		EshopUser u = new EshopUser();
 		u.setUsername(registerMsg.getUsername());
 		u.setPassword(registerMsg.getPassword());
+		u.setAddTime(new Date());
+		u.setValid(0);
 		try {
 			userDAOImpl.insert(u);
 			sr.put("msg", "注册成功");

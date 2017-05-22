@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	$("#submit").on("click", function() {
-		var username = $(".text").val();
-		var password = $("#pwd").val();
+	$("#loginBtn").on("click", function() {
+		var username = $("#username").val();
+		var password = $("#password").val();
 		login(username, password);
 	});
 });
@@ -23,7 +23,7 @@ function login(username, password, callback) {
 			if(json.data.code == -1){
 				layer.msg(json.data.msg);
 			}else{
-				window.location.href = "http://localhost:8080/eshop/ms/index";
+				window.location.href = "http://localhost:8080/eshop/index";
 			}
 		}
 	});
