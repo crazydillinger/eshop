@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
-import org.springframework.http.HttpRequest;
 
 import com.java.eshop.commons.ServiceResponse;
 import com.java.eshop.web.dao.impl.EshopUserDAOImpl;
 import com.java.eshop.web.model.para.LoginMessege;
 import com.java.eshop.web.model.para.RegisterMsg;
 import com.java.eshop.web.model.po.EshopUser;
+
+
 
 public class EshopUserService {
 	
