@@ -13,19 +13,12 @@ public class EshopGoods {
 	private BigDecimal primePrice;//原价
 	private Integer promotionType;//优惠类型
 	private BigDecimal promotionValue;//优惠值
+	private String type;//类型
 	private BigDecimal payFee;//实付金额
 	private Integer reserve;//库存
-	private BigDecimal weight;//重量
-	private String vender;//厂家
-	private String goodsArea;//产地
-	private Integer isRecomm;//实否推荐
-	private Integer isHot;//是否热卖
 	private Integer isNew;//实否新品
 	private String describe;//详细描述
 	private String picture;//照片
-	private Integer isGrounding;//是否上架
-	private String username;//录入人
-	private Integer lookCount;//查看次数
 	private Integer integral;//商品积分
 	private Date addTime;
 	private Date updTime;
@@ -71,6 +64,12 @@ public class EshopGoods {
 	public void setPromotionValue(BigDecimal promotionValue) {
 		this.promotionValue = promotionValue;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public BigDecimal getPayFee() {
 		return payFee;
 	}
@@ -82,36 +81,6 @@ public class EshopGoods {
 	}
 	public void setReserve(Integer reserve) {
 		this.reserve = reserve;
-	}
-	public BigDecimal getWeight() {
-		return weight;
-	}
-	public void setWeight(BigDecimal weight) {
-		this.weight = weight;
-	}
-	public String getVender() {
-		return vender;
-	}
-	public void setVender(String vender) {
-		this.vender = vender;
-	}
-	public String getGoodsArea() {
-		return goodsArea;
-	}
-	public void setGoodsArea(String goodsArea) {
-		this.goodsArea = goodsArea;
-	}
-	public Integer getIsRecomm() {
-		return isRecomm;
-	}
-	public void setIsRecomm(Integer isRecomm) {
-		this.isRecomm = isRecomm;
-	}
-	public Integer getIsHot() {
-		return isHot;
-	}
-	public void setIsHot(Integer isHot) {
-		this.isHot = isHot;
 	}
 	public Integer getIsNew() {
 		return isNew;
@@ -131,24 +100,6 @@ public class EshopGoods {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public Integer getIsGrounding() {
-		return isGrounding;
-	}
-	public void setIsGrounding(Integer isGrounding) {
-		this.isGrounding = isGrounding;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public Integer getLookCount() {
-		return lookCount;
-	}
-	public void setLookCount(Integer lookCount) {
-		this.lookCount = lookCount;
-	}
 	public Integer getIntegral() {
 		return integral;
 	}
@@ -167,5 +118,14 @@ public class EshopGoods {
 	public void setUpdTime(Date updTime) {
 		this.updTime = updTime;
 	}
-		
+	@Override
+	public String toString() {
+		return "EshopGoods [id=" + id + ", categoryId=" + categoryId + ", goodsName=" + goodsName + ", sellPrice="
+				+ sellPrice + ", primePrice=" + primePrice + ", promotionType=" + promotionType + ", promotionValue="
+				+ promotionValue + ", type=" + type + ", payFee=" + payFee + ", reserve=" + reserve + ", isNew=" + isNew
+				+ ", describe=" + describe + ", picture=" + picture + ", integral=" + integral + ", addTime=" + addTime
+				+ ", updTime=" + updTime + "]";
+	}
+	
+	
 }

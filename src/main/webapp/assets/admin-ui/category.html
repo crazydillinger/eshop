@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Modern an Admin Panel Category Flat Bootstarp Resposive
-	Website Template | Graphs :: w3layouts</title>
+	Website Template | Widgets :: w3layouts</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -20,13 +20,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
 
 
 
@@ -43,12 +37,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 
 <!---//webfonts--->
-<!-- chart -->
-<script src="js/Chart.js"></script>
-<!-- //chart -->
-<!--引入CSS-->
-<link rel="stylesheet" type="text/css"
-	href="/eshop/assets/static/plugging/webuploader-0.1.5/webuploader.css">
+<!-- Bootstrap Core JavaScript -->
+<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -159,6 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a
 									href="http://localhost:8080/eshop/assets/admin-ui/addproduct.html">添加商品</a>
 								</li>
+								<li><a href="typography.html">Typography</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 						<li><a href="#"><i class="fa fa-envelope nav_icon"></i>订单管理<span
 								class="fa arrow"></span></a>
@@ -173,91 +164,184 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!-- /.sidebar-collapse -->
 			</div>
+
 			<!-- /.navbar-static-side -->
 		</nav>
 		<div id="page-wrapper">
 			<div class="graphs">
-				<div class="widget_head" style="margin-left: 50px">添加商品信息</div>
+				<div class="widget_head" style="margin-left: 50px">
+					商品类别管理
+					<!-- Split button -->
+					<div class="btn-group" style="float: right; margin-right: 30px;">
+						<button type="button" class="btn btn-primary">新增商品类别</button>
+						<button type="button" class="btn btn-primary	 dropdown-toggle"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="caret"></span> <span class="sr-only">Toggle
+								Dropdown</span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a href="#" id="firCategory">新增一级分类</a></li>
+							<li><a href="#" id="subCategory">新增子分类</a></li>
+						</ul>
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
-					<div class="col-md-4">
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">商品名称</span> <input
-								type="text" name="search" class="form-control1 input-search"
-								placeholder="请输入商品名称">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">原 价 </span> <input
-								type="text" name="search" class="form-control1 input-search"
-								placeholder="商品原价">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">优惠类型</span>
-							<div class="btn-group" data-toggle="buttons" style="width: 100%">
-								<label class="btn btn-default" id="promotionType1"
-									style="width: 33%"> <input type="radio"
-									name="promotionType" autocomplete="off">不优惠
-								</label> <label class="btn btn-default" id="promotionType2"
-									style="width: 33%"> <input type="radio"
-									name="promotionType" autocomplete="off">打折
-								</label> <label class="btn btn-default" id="promotionType3"
-									style="width: 33%"> <input type="radio"
-									name="promotionType" autocomplete="off">减额
-								</label>
-							</div>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">优惠数值</span> <input
-								type="text" name="search" class="form-control1 input-search"
-								placeholder="减免金额">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">商品类型</span> <select
-								class="form-control1">
-								<option>我是商品类型</option>
-							</select>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">实付金额</span> <input
-								type="text" name="search" class="form-control1 input-search"
-								placeholder="实付金额">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">商品库存</span> <input
-								type="text" name="search" class="form-control1 input-search"
-								placeholder="库存">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">商品积分</span> <input
-								type="text" name="search" class="form-control1 input-search"
-								placeholder="积分">
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon" id="basic-addon1">是否新品</span>
-							<div class="btn-group" data-toggle="buttons" style="width: 100%">
-								<label class="btn btn-default" id="promotionType1"
-									style="width: 50%"> <input type="radio"
-									name="promotionType" autocomplete="off">新品
-								</label> <label class="btn btn-default" id="promotionType2"
-									style="width: 50%"> <input type="radio"
-									name="promotionType" autocomplete="off">非新品 
-							</div>
-						</div>
-						<label>商品详细描述 : </label>
-						<textarea rows="3" class="form-control1" style="height: 120px;"></textarea>
-						<div id="fileList"></div>
-						<div class="cp_img_jia" id="filePicker">选择图片</div>
+					<div class="col-md-1">
+						<span style="text-align: center; line-height: 40px">一级类别</span>
+					</div>
+					<div class="col-md-3">
+						<select class="form-control1" id = "cateFirstSelect">					
+							
+						</select>
 					</div>
 					<div class="clearfix"></div>
+					<div style="margin-top: 50px"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-1">
+						<span style="text-align: center; line-height: 40px">二级类别</span>
+					</div>
+					<div class="col-md-3">
+						<select class="form-control1" id = "cateSecondSelect">
+
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					<div style="margin-top: 50px"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-1">
+						<span style="text-align: center; line-height: 40px">三级类别</span>
+					</div>
+					<div class="col-md-3">
+						<select class="form-control1" id = "cateThirdSelect">
+
+						</select>
+					</div>
+					<div class="clearfix"></div>
+					<div style="margin-top: 50px"></div>
 				</div>
 			</div>
 		</div>
-		<div class="copy_layout">
-			<p>Copyright © 2015 Modern. All Rights Reserved | Design by</p>
+		<!-- /#page-wrapper -->
+	</div>
+	<!-- 	modal -->
+	<div id="firModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">新增一级分类</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<span style="text-align: center; line-height: 40px">一级类别</span>
+						</div>
+						<div class="col-md-5">
+							<div class="input-group">
+								<input type="text" class="form-control" id="firstCate" placeholder="一级类别" aria-describedby="sizing-addon1">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div style="margin-top: 50px"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<span style="text-align: center; line-height: 40px">二级类别</span>
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-control" id="secondCate" placeholder="二级类别" aria-describedby="sizing-addon1">
+						</div>
+						<div class="clearfix"></div>
+						<div style="margin-top: 50px"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<span style="text-align: center; line-height: 40px">三级类别</span>
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-control" id="thirdCate" placeholder="三级类别" aria-describedby="sizing-addon1">
+						</div>
+						<div class="clearfix"></div>
+						<div style="margin-top: 50px"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary" id="saveBtn">保存</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
 		</div>
+		<!-- /.modal-dialog -->
 	</div>
-	</div>
-	<!-- /#page-wrapper -->
+	<!-- /.modal -->
+	<div id="subModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">新增子分类</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<span style="text-align: center; line-height: 40px">一级类别</span>
+						</div>
+						<div class="col-md-5">
+							<select class="form-control1">
+								<option>一级分类</option>
+
+							</select>
+						</div>
+						<div class="clearfix"></div>
+						<div style="margin-top: 50px"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<span style="text-align: center; line-height: 40px">二级类别</span>
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-control" placeholder="二级类别" aria-describedby="sizing-addon1">
+						</div>
+						<div class="clearfix"></div>
+						<div style="margin-top: 50px"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<span style="text-align: center; line-height: 40px">三级类别</span>
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-control" placeholder="三级类别" aria-describedby="sizing-addon1">
+						</div>
+						<div class="clearfix"></div>
+						<div style="margin-top: 50px"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary">保存</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
 	</div>
 	<!-- /#wrapper -->
 	<!-- Nav CSS -->
@@ -265,11 +349,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- Metis Menu Plugin JavaScript -->
 	<script src="js/metisMenu.min.js"></script>
 	<script src="js/custom.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-	<script type="text/javascript"
-		src="/eshop/assets/static/plugging/webuploader-0.1.5/webuploader.js"></script>
-	<script src="/eshop/assets/static/admin-ui/goods/js/index.js"></script>
-	<!--引入JS-->
+	<script src="/eshop/assets/static/admin-ui/category/js/index.js"></script>
+	<script src="/eshop/assets/static/plugging/layer-v3.0.3/layer/layer.js"></script>
 </body>
 </html>

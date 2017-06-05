@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eshop_cartitem_sqlmap">
+  <sql id="Base_Column_List">
+  	id,cart_id,product_id,number
+  </sql>
+  <select id="selectByPrimaryKey" resultType="com.java.eshop.web.model.po.EshopCartItem" parameterType="java.lang.Long">
+    select <include refid="eshop_cartitem_sqlmap.Base_Column_List"/> from eshop_cartitem where id = #{id}
+  </select>
+  <select id="selectByCartId" resultType="com.java.eshop.web.model.po.EshopCartItem" parameterType="java.lang.Long">
+  	select <include refid="eshop_cartitem_sqlmap.Base_Column_List"/> from eshop_cartitem where cart_id = #{cartId}
+  </select>
+  <insert id="insert" parameterType="com.java.eshop.web.model.po.EshopCartItem">
+  	insert into eshop_cartitem values(#{id},#{cartId},#{productId},#{number})
+  </insert>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  	delete from eshop_cartitem where id = #{id}
+  </delete>
+  <update id="updateByPrimaryKey" parameterType="com.java.eshop.web.model.po.EshopCartItem">
+  	update eshop_cartitem
+  	set cart_id = #{cartId},
+  	product_id = #{productId},
+  	number = #{number}
+  	where id = #{id}
+  </update>
+</mapper>

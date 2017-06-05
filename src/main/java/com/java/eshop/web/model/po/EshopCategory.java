@@ -29,6 +29,11 @@ public class EshopCategory {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
+	@Override
+	public String toString() {
+		return "EshopCategory [id=" + id + ", rank=" + rank + ", parentId=" + parentId + ", categoryName="
+				+ categoryName + "]";
+	}
 	
 	
 }
