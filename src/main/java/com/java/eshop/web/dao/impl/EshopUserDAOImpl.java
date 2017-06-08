@@ -50,6 +50,7 @@ public class EshopUserDAOImpl implements EshopUserDAO{
 	@Override
 	public void updateByPrimaryKey(EshopUser record) throws IOException {
 		DBAcess.getSqlSession().update("eshop_user_sqlmap.updateByPrimaryKey", record);
+		DBAcess.commit();
 	}
 
 	/**

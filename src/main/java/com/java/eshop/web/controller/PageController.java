@@ -4,10 +4,13 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,11 +41,31 @@ public class PageController {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
-		return "eshop-ui/home/index/index";
+		return "eshop-ui/home/home";
 	}
 	
 	@RequestMapping(value="/register",method= RequestMethod.GET)
 	public String register(){
 		return "eshop-ui/home/register";
+	}
+	@RequestMapping(value="/userInfo",method= RequestMethod.GET)
+	public String userInfo(){
+		return "eshop-ui/person/information";
+	}
+	@RequestMapping(value="/address",method= RequestMethod.GET)
+	public String address(){
+		return "eshop-ui/person/address";
+	}
+	@RequestMapping(value="/goods",method= RequestMethod.GET)
+	public String goods(){
+		return "eshop-ui/home/introduction";
+	}
+	@RequestMapping(value="/cart",method= RequestMethod.GET)
+	public String cart(){
+		return "eshop-ui/home/shopcart";
+	}
+	@RequestMapping(value="/favorite",method= RequestMethod.GET)
+	public String favorite(){
+		return "eshop-ui/person/collection";
 	}
 }

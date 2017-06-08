@@ -11,6 +11,8 @@ public interface EshopCartItemDAO {
 	
 	List<EshopCartItem> selectByCartId(Long id)throws IOException;
 	
+	EshopCartItem selectByProductId(Long id)throws IOException;
+	
 	void insert(EshopCartItem record)throws IOException;
 	
 	void deleteByPrimaryKey(Long id)throws IOException;

@@ -28,21 +28,21 @@
 		pay_fee,reserve,isnew,describe,picture,integral,add_time,upd_time
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="GoodsResult"
-		parameterType="Integer">
+		parameterType="Long">
 		select
-		<include refid="eshop_goods_sqlmap.Base_Column_List"></include>
+		*
 		from eshop_goods where id = #{id}
 	</select>
 	<select id="selectByGoodsName" parameterType="String" resultMap="GoodsResult">
 		select
-		<include refid="eshop_goods_sqlmap.Base_Column_List" />
+		*
 		from eshop_goods where goods_name =#{goodsName}
 	</select>
 	<insert id="insert" parameterType="com.java.eshop.web.model.po.EshopUser">
   	insert into eshop_goods values(#{id},#{categoryId},#{goodsName},#{sellPrice},#{primePrice},#{promotionType},#{promotionValue},#{type},#{payFee},
   	#{reserve},#{isNew},#{describe},#{picture},#{integral},#{add_time},#{updTime})
  	</insert>
-	<delete id="deleteByPrimaryKey" parameterType="Integer">
+	<delete id="deleteByPrimaryKey" parameterType="Long">
 		delete from eshop_goods where id = #{id}
 	</delete>
 	<update id="updateByPrimaryKey" parameterType="com.java.eshop.web.model.po.EshopGoods">
@@ -65,7 +65,7 @@
 		where id = #{id}
 	</update>
 	<select id="selectByParams" parameterType="java.util.Map" resultMap="GoodsResult">
-		select <include refid="eshop_goods_sqlmap.Base_Column_List"/>
+		select *
 		from eshop_goods
 		where 1 = 1 
 		<if test="goodsName != null">

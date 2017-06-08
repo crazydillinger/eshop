@@ -28,16 +28,19 @@ public class EshopAddressDAOImpl implements EshopAddressDAO{
 	@Override
 	public void insert(EshopAddress record) throws IOException {
 		DBAcess.getSqlSession().insert("eshop_address_sqlmap.insert", record);
+		DBAcess.commit();
 	}
 
 	@Override
 	public void deleteByPrimaryKey(Long id) throws IOException {
 		DBAcess.getSqlSession().delete("eshop_address_sqlmap.deleteByPrimaryKey", id);
+		DBAcess.commit();
 	}
 
 	@Override
 	public void updateByPrimaryKey(EshopAddress record) throws IOException {
-		DBAcess.getSqlSession().update("eshop_address_sqlmap.updateByPrimaryKey", record);
+		DBAcess.getSqlSession().update("eshop_address_sqlmap.updateByPrimarKey", record);
+		DBAcess.commit();
 	}
 
 }

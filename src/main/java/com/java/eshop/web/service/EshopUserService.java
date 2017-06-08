@@ -9,9 +9,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 
 import com.java.eshop.commons.ServiceResponse;
+import com.java.eshop.web.dao.impl.EshopCartDAOImpl;
 import com.java.eshop.web.dao.impl.EshopUserDAOImpl;
 import com.java.eshop.web.model.para.LoginMessege;
 import com.java.eshop.web.model.para.RegisterMsg;
+import com.java.eshop.web.model.po.EshopCart;
 import com.java.eshop.web.model.po.EshopUser;
 
 
@@ -21,6 +23,8 @@ public class EshopUserService {
 	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(EshopUserService.class);
 	
 	EshopUserDAOImpl userDAOImpl = new EshopUserDAOImpl();
+	
+	EshopCartDAOImpl cartDAOImpl = new EshopCartDAOImpl();
 	
 	public void login(LoginMessege user,ServiceResponse sr,HttpServletRequest request){
 		//权限设置
@@ -49,6 +53,23 @@ public class EshopUserService {
 			return;
 		}
 		sr.put("msg", "登陆成功！");
+		EshopCart cart = null;
+		try {
+			cart = cartDAOImpl.selectByUserId(u.getId());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(null == cart){
+			EshopCart c = new EshopCart();
+			c.setUserId(u.getId());
+			try {
+				cartDAOImpl.insert(c);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		request.getSession().setAttribute("USER", u);
 	}
 	

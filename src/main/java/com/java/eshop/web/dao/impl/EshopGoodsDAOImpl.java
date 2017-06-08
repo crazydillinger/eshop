@@ -64,7 +64,7 @@ public class EshopGoodsDAOImpl implements EshopGoodsDAO{
 	 */
 	@Override
 	public List<EshopGoods> selectByParams(Map<String, Object> params) throws IOException {
-		return DBAcess.getSqlSession().selectList("eshop_goods_sqlmap.selectByParmas", params);
+		return DBAcess.getSqlSession().selectList("eshop_goods_sqlmap.selectByParams", params);
 	}
 
 }

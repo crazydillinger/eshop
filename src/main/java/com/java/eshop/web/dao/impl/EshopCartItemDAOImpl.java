@@ -24,8 +24,10 @@ public class EshopCartItemDAOImpl implements EshopCartItemDAO {
 	 */
 	@Override
 	public List<EshopCartItem> selectByCartId(Long id) throws IOException {
-		return DBAcess.getSqlSession().selectOne("eshop_cartitem_sqlmap.selectByCartId", id);
+		return DBAcess.getSqlSession().selectList("eshop_cartitem_sqlmap.selectByCartId", id);
 	}
+	
+	
 
 	/**
 	 * 添加购物车子项
@@ -55,6 +57,11 @@ public class EshopCartItemDAOImpl implements EshopCartItemDAO {
 	public void updateByPrimaryKey(EshopCartItem record) throws IOException {	
 		DBAcess.getSqlSession().update("eshop_cartitem_sqlmap.updateByPrimaryKey", record);
 		DBAcess.commit();
+	}
+
+	@Override
+	public EshopCartItem selectByProductId(Long id) throws IOException {
+		return DBAcess.getSqlSession().selectOne("eshop_cartitem_sqlmap.selectByProductId", id);
 	}
 
 }
